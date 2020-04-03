@@ -1,287 +1,287 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "clusterName": {
-      "value": "{CLUSTERNAME}"
-    },
-    "clusterNameDomainName": {
-      "value": "{CLUSTERNAME}"
-    },
-    "osFamilySpec": {
-      "value": "ubuntu"
-    },
-    "jumpBoxVmSize": {
-      "value": "Standard_D1_v2"
-    },
-    "mongoVmSize": {
-      "value": "Standard_D1_v2"
-    },
-    "mysqlVmSize": {
-      "value": "Standard_D1_v2"
-    },
-    "frontendVmSize": {
-      "value": "Standard_D1_v2"
-    },
-    "adminUsername": {
-      "value": "lexoxaadmin"
-    },
-    "adminPublicKey": {
-      "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC1hxp1rMjoEZSlJZNFkXNDFviWfAb2aH9k1lSaKWYzMej7vjqI6zUY+WKOL+k21rRnAMeQhUQQg2tOFI7I1m/2coEsOu9ewKarcx3XvO4TYa7PYQm3VkHvd3uASUb10IoIzjSLe4WhvDqRZuESf6LHrh1zrpSSbHTX5kqyyOvZMyva6fcDz9RA0anKYZXoPifZSaDILPiUuq6x44pKQrWj16Lf5yQBustGhtEx/n3DmybOPvFGRpiz9QGVVvUrzSCkVrVCQfN6nSvPsmi11lO5KCaKwLR2E3HUW42qDsinAQHOSOgYZXqT+SgCt4H7ku8HYSM6h4ap7XZ4afYO2c3WSGjCDr0EA4H9ec1KdkLAdLRlZbagdzXgz5mL2rRf1Urz2mlO0krSLIKFnUBZrEqXr39FjjaooxHo7daGgDRV3T8zXbM0cnPqIwv3s78iTx93P/2Xqz+lnY7rXCYURAbZE5tqdERc1Jfd4xgkx+bHNgIh+b3TVne/8gVbUUqhwb5rehTYZ2Yep5xUSKvWB6feJLTz0jK2eUeA28gE/E3Da7Agsi6PwmfvhpsBOnlVsUIPWg4KLbFrtRHY3utCMxQYBtxKXUd1b9Mzvkn3h+Tm0pfzrXAsYo0ItKRAYhu2Kq3aa7H6UIOj6A74n1B0WncXk4L3nuMvUo8Z0u+8T78DKw== CS_HD@DESKTOP-GLIKS67"
-    },
-    "mongoServerAdminUserName": {
-      "value": "oxamongoadmin"
-    },
-    "mongoServerAdminPassword": {
-      "value": "{SERVICEACCOUNTPASSWORD}"
-    },
-    "mysqlServerPackageVersion": {
-      "value": "5.6"
-    },
-    "mysqlServerAdminUserName": {
-      "value": "oxamysqladmin"
-    },
-    "mysqlServerAdminPassword": {
-      "value": "{SERVICEACCOUNTPASSWORD}"
-    },
-    "mysqlServerReplUserName": {
-      "value": "oxamysqlrepluser"
-    },
-    "mysqlServerReplPassword": {
-      "value": "{SERVICEACCOUNTPASSWORD}"
-    },
-    "mysqlBackupUserName": {
-      "value": "oxamysqlbackupuser"
-    },
-    "mysqlBackupUserPassword": {
-      "value": "{SERVICEACCOUNTPASSWORD}"
-    },
-    "deploymentSlot": {
-      "value": "slot1"
-    },
-    "deploymentVersionId": {
-      "value": "201703141409"
-    },
-    "autoScaleEnabled": {
-      "value": true
-    },
-    "autoScaleCapacityDefault": {
-      "value": 1
-    },
-    "autoScaleCapacityMaximum": {
-      "value": 1
-    },
-    "autoScaleCapacityMinimum": {
-      "value": 1
-    },
-    "oxaToolsGithubAccountName": {
-      "value": "oxatest"
-    },
-    "oxaToolsGithubProjectName": {
-      "value": "oxa-tools"
-    },
-    "oxaToolsGithubBranch": {
-      "value": "oxa/master.fic"
-    },
-    "edxConfigurationGithubAccountName": {
-      "value": "oxatest"
-    },
-    "edxConfigurationGithubProjectName": {
-      "value": "edx-configuration"
-    },
-    "edxConfigurationGithubBranch": {
-      "value": "oxa/master.fic"
-    },
-    "edxPlatformGithubAccountName": {
-      "value": "oxatest"
-    },
-    "edxPlatformGithubProjectName": {
-      "value": "edx-platform"
-    },
-    "edxPlatformGithubBranch": {
-      "value": "oxa/master.fic"
-    },
-    "edxThemeGithubAccountName": {
-      "value": "oxatest"
-    },
-    "edxThemeGithubProjectName": {
-      "value": "edx-theme"
-    },
-    "edxThemeGithubBranch": {
-      "value": "oxa/master.fic"
-    },
-    "ansibleGithubAccountName": {
-      "value": "oxatest"
-    },
-    "ansibleGithubProjectName": {
-      "value": "ansible"
-    },
-    "ansibleGithubBranch": {
-      "value": "master"
-    },
-    "edxVersion": {
-      "value": "open-release/ficus.master"
-    },
-    "edxForumVersion": {
-      "value": "open-release/ficus.master"
-    },
-    "armTemplateRelativePath": {
-      "value": "templates/stamp"
-    },
-    "vmssUbuntuOsImageSku": {
-      "value": "16.04.0-LTS"
-    },
-    "mysqlUbuntuOsImageSku": {
-      "value": "16.04.0-LTS"
-    },
-    "mongoUbuntuOsImageSku": {
-      "value": "16.04.0-LTS"
-    },
-    "defaultUbuntuOsImageSku": {
-      "value": "16.04.0-LTS"
-    },
-    "jumpBoxDataDiskSizeGB": {
-      "value": 50
-    },
-    "mongoNodeDataDiskSizeGB": {
-      "value": 256
-    },
-    "mysqlNodeDataDiskSizeGB": {
-      "value": 256
-    },
-    "customInstallerLaunchScript": {
-      "value": "run-customizations.sh"
-    },
-    "customInstallerMainScriptRelativePath": {
-      "value": "scripts/bootstrap.sh"
-    },
-    "cloud": {
-      "value": "bvt"
-    },
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "clusterName": {
+            "value": "{CLUSTERNAME}"
+        },
+        "clusterNameDomainName": {
+            "value": "{CLUSTERNAME}"
+        },
+        "osFamilySpec": {
+            "value": "ubuntu"
+        },
+        "jumpBoxVmSize": {
+            "value": "Standard_D1_v2"
+        },
+        "mongoVmSize": {
+            "value": "Standard_D1_v2"
+        },
+        "mysqlVmSize": {
+            "value": "Standard_D1_v2"
+        },
+        "frontendVmSize": {
+            "value": "Standard_D1_v2"
+        },
+        "adminUsername": {
+            "value": "lexoxaadmin"
+        },
+        "adminPublicKey": {
+            "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCrVZf6xJYqmA4ZXN70Z2ynrX5f1zA7ml8IY/l24HRPN1LHPkNFwR5sCvHD16bZl/A2cr9IfzAXHul2ZUbCkg9jpJnyir/IvuFVIqWgrAACMf2iWCJzPoVhZleWNuvs+508qfcZC2ZnotAZUENPL0vf54GolOiVYIiKU8nslpcP7iiw4ZVaiFJes2RVimZxwa2epX+TlnK4tCX5Vup1A7B6Oouy67+caMHLVWhqYMgDZvqhULafSuA6R6J1V2LBpAm++b77+y7G4JuTlr/IcME+pMzvo0rYuVVYpaSybXo9j78SsQMTse+r6eaHwa/7cQcnWeZxiYmn3IS7bN5Bll5alDniC1kCfP7YChXo16DCd1XtZftb4BK4AKIr3KQHsvK0n4og6cd0VonSKOf9H1/WqgYcPsz227zkssetOyUTVlp/NbZhF13E1xvm9gF3Lk+V/vTkTiwWzlylU/UES0Q4pLzNt0zyhsx2PxrpiWgBT/jCmYMCiCLDH+T9mAZBTJnFjggZFcdkgf9ESVAJYMQl6Amtlace57N+I63jFkA8p+oagGiNewk+T2aO7WFP3kxh9RaAGjj0JXprq8l4E/kiH7tnaHRx7nVs15q2fU/bCT/OxKPaCzS4P3RszvIzCL06ry/1u3m5FMlnouOXDhTR5DSl/4LCjIAYa+6I8NENVw== John Patrick@E5-575G-37D2"
+        },
+        "mongoServerAdminUserName": {
+            "value": "oxamongoadmin"
+        },
+        "mongoServerAdminPassword": {
+            "value": "{SERVICEACCOUNTPASSWORD}"
+        },
+        "mysqlServerPackageVersion": {
+            "value": "5.6"
+        },
+        "mysqlServerAdminUserName": {
+            "value": "oxamysqladmin"
+        },
+        "mysqlServerAdminPassword": {
+            "value": "{SERVICEACCOUNTPASSWORD}"
+        },
+        "mysqlServerReplUserName": {
+            "value": "oxamysqlrepluser"
+        },
+        "mysqlServerReplPassword": {
+            "value": "{SERVICEACCOUNTPASSWORD}"
+        },
+        "mysqlBackupUserName": {
+            "value": "oxamysqlbackupuser"
+        },
+        "mysqlBackupUserPassword": {
+            "value": "{SERVICEACCOUNTPASSWORD}"
+        },
+        "deploymentSlot": {
+            "value": "slot1"
+        },
+        "deploymentVersionId": {
+            "value": "201703141409"
+        },
+        "autoScaleEnabled": {
+            "value": true
+        },
+        "autoScaleCapacityDefault": {
+            "value": 1
+        },
+        "autoScaleCapacityMaximum": {
+            "value": 1
+        },
+        "autoScaleCapacityMinimum": {
+            "value": 1
+        },
+        "oxaToolsGithubAccountName": {
+            "value": "PATOXA"
+        },
+        "oxaToolsGithubProjectName": {
+            "value": "oxa-tools"
+        },
+        "oxaToolsGithubBranch": {
+            "value": "oxa/master.fic"
+        },
+        "edxConfigurationGithubAccountName": {
+            "value": "PATOXA"
+        },
+        "edxConfigurationGithubProjectName": {
+            "value": "configuration"
+        },
+        "edxConfigurationGithubBranch": {
+            "value": "open-release/ficus.master"
+        },
+        "edxPlatformGithubAccountName": {
+            "value": "PATOXA"
+        },
+        "edxPlatformGithubProjectName": {
+            "value": "edx-platform"
+        },
+        "edxPlatformGithubBranch": {
+            "value": "open-release/ficus.master"
+        },
+        "edxThemeGithubAccountName": {
+            "value": "PATOXA"
+        },
+        "edxThemeGithubProjectName": {
+            "value": "edx-theme"
+        },
+        "edxThemeGithubBranch": {
+            "value": "oxa/master.fic"
+        },
+        "ansibleGithubAccountName": {
+            "value": "PATOXA"
+        },
+        "ansibleGithubProjectName": {
+            "value": "ansible"
+        },
+        "ansibleGithubBranch": {
+            "value": "master"
+        },
+        "edxVersion": {
+            "value": "open-release/ficus.master"
+        },
+        "edxForumVersion": {
+            "value": "open-release/ficus.master"
+        },
+        "armTemplateRelativePath": {
+            "value": "templates/stamp"
+        },
+        "vmssUbuntuOsImageSku": {
+            "value": "16.04.0-LTS"
+        },
+        "mysqlUbuntuOsImageSku": {
+            "value": "16.04.0-LTS"
+        },
+        "mongoUbuntuOsImageSku": {
+            "value": "16.04.0-LTS"
+        },
+        "defaultUbuntuOsImageSku": {
+            "value": "16.04.0-LTS"
+        },
+        "jumpBoxDataDiskSizeGB": {
+            "value": 50
+        },
+        "mongoNodeDataDiskSizeGB": {
+            "value": 256
+        },
+        "mysqlNodeDataDiskSizeGB": {
+            "value": 256
+        },
+        "customInstallerLaunchScript": {
+            "value": "run-customizations.sh"
+        },
+        "customInstallerMainScriptRelativePath": {
+            "value": "scripts/bootstrap.sh"
+        },
+        "cloud": {
+            "value": "bvt"
+        },
 
-    "keyVaultMasterAccountId": {
-      "value": "{KEYVAULTUSEROBJECTID}"
-    },
-    "keyVaultMasterAccountKeyAccessPermission": {
-      "value": [
-        "all"
-      ]
-    },
-    "keyVaultMasterAccountSecretAccessPermission": {
-      "value": [
-        "all"
-      ]
-    },
-    "keyVaultSku": {
-      "value": "Standard"
-    },
-    "lmsTrafficManagerStateMetadata": {
-      "value": [
-        "Enabled",
-        "Disabled",
-        1,
-        2
-      ]
-    },
-    "cmsTrafficManagerStateMetadata": {
-      "value": [
-        "Enabled",
-        "Disabled",
-        1,
-        2
-      ]
-    },
-    "previewTrafficManagerStateMetadata": {
-      "value": [
-        "Enabled",
-        "Disabled",
-        1,
-        2
-      ]
-    },
-    "aadWebClientId": {
-      "value": "{AADWEBCLIENTID}"
-    },
-    "aadWebClientAppKey": {
-      "value": "{AADWEBCLIENTAPPKEY}"
-    },
-    "aadTenantId": {
-      "value": "{AADTENANTID}"
-    },
-    "smtpServer": {
-      "value": "{SMTPSERVER}"
-    },
-    "smtpServerPort": {
-      "value": "{SMTPSERVERPORT}"
-    },
-    "smtpAuthenticationUser": {
-      "value": "{SMTPAUTHENTICATIONUSER}"
-    },
-    "smtpAuthenticationUserPassword": {
-      "value": "{SMTPAUTHENTICATIONUSERPASSWORD}"
-    },
-    "clusterAdmininistratorEmailAddress": {
-      "value": "{ADMINEMAILADDRESS}"
-    },
-    "mongoBackupFrequency": {
-      "value": "0 0 * * *"
-    },
-    "mysqlBackupFrequency": {
-      "value": "0 */4 * * *"
-    },
-    "mongoBackupRetentionDays": {
-      "value": 30
-    },
-    "mysqlBackupRetentionDays": {
-      "value": 30
-    },
-    "importKitchenSinkCourse": {
-      "value": false
-    },
-    "enableComprehensiveTheming": {
-      "value": true
-    },
-    "comprehensiveThemingDirectory": {
-      "value": "/edx/app/edxapp/edx-platform/themes"
-    },
-    "comprehensiveThemingName": {
-      "value": "comprehensive"
-    },
-    "enableThirdPartyAuth": {
-      "value": false
-    },
-    "aadLoginButtonText": {
-      "value": ""
-    },
-    "baseDomain": {
-      "value": "{CLUSTERNAME}-tm.trafficmanager.net"
-    },
-    "domainSeparator": {
-      "value": "-"
-    },
-    "edxappSuperUserName": {
-      "value": "edxappadmin"
-    },
-    "edxappSuperUserPassword": {
-      "value": "{SERVICEACCOUNTPASSWORD}"
-    },
-    "edxappSuperUserEmail": {
-      "value": "{ADMINEMAILADDRESS}"
-    },
-    "memcacheServer": {
-      "value": "{MEMCACHESERVER}"
-    },
-    "azureCliVersion": {
-      "value": "{AZURECLIVERSION}"
-    },
-    "enableMobileRestApi": {
-      "value": {ENABLEMOBILERESTAPI}
-    },
-    "edxPlatformName": {
-      "value": "{EDXPLATFORMNAME}"
-    },
-    "edxPlatformEmail": {
-      "value": "{EDXPLATFORMEMAIL}"
+        "keyVaultMasterAccountId": {
+            "value": "{KEYVAULTUSEROBJECTID}"
+        },
+        "keyVaultMasterAccountKeyAccessPermission": {
+            "value": [
+                "all"
+            ]
+        },
+        "keyVaultMasterAccountSecretAccessPermission": {
+            "value": [
+                "all"
+            ]
+        },
+        "keyVaultSku": {
+            "value": "Standard"
+        },
+        "lmsTrafficManagerStateMetadata": {
+            "value": [
+                "Enabled",
+                "Disabled",
+                1,
+                2
+            ]
+        },
+        "cmsTrafficManagerStateMetadata": {
+            "value": [
+                "Enabled",
+                "Disabled",
+                1,
+                2
+            ]
+        },
+        "previewTrafficManagerStateMetadata": {
+            "value": [
+                "Enabled",
+                "Disabled",
+                1,
+                2
+            ]
+        },
+        "aadWebClientId": {
+            "value": "{AADWEBCLIENTID}"
+        },
+        "aadWebClientAppKey": {
+            "value": "{AADWEBCLIENTAPPKEY}"
+        },
+        "aadTenantId": {
+            "value": "{AADTENANTID}"
+        },
+        "smtpServer": {
+            "value": "{SMTPSERVER}"
+        },
+        "smtpServerPort": {
+            "value": "{SMTPSERVERPORT}"
+        },
+        "smtpAuthenticationUser": {
+            "value": "{SMTPAUTHENTICATIONUSER}"
+        },
+        "smtpAuthenticationUserPassword": {
+            "value": "{SMTPAUTHENTICATIONUSERPASSWORD}"
+        },
+        "clusterAdmininistratorEmailAddress": {
+            "value": "{ADMINEMAILADDRESS}"
+        },
+        "mongoBackupFrequency": {
+            "value": "0 0 * * *"
+        },
+        "mysqlBackupFrequency": {
+            "value": "0 */4 * * *"
+        },
+        "mongoBackupRetentionDays": {
+            "value": 30
+        },
+        "mysqlBackupRetentionDays": {
+            "value": 30
+        },
+        "importKitchenSinkCourse": {
+            "value": false
+        },
+        "enableComprehensiveTheming": {
+            "value": true
+        },
+        "comprehensiveThemingDirectory": {
+            "value": "/edx/app/edxapp/edx-platform/themes"
+        },
+        "comprehensiveThemingName": {
+            "value": "comprehensive"
+        },
+        "enableThirdPartyAuth": {
+            "value": false
+        },
+        "aadLoginButtonText": {
+            "value": ""
+        },
+        "baseDomain": {
+            "value": "{CLUSTERNAME}-tm.trafficmanager.net"
+        },
+        "domainSeparator": {
+            "value": "-"
+        },
+        "edxappSuperUserName": {
+            "value": "edxappadmin"
+        },
+        "edxappSuperUserPassword": {
+            "value": "{SERVICEACCOUNTPASSWORD}"
+        },
+        "edxappSuperUserEmail": {
+            "value": "{ADMINEMAILADDRESS}"
+        },
+        "memcacheServer": {
+            "value": "{MEMCACHESERVER}"
+        },
+        "azureCliVersion": {
+            "value": "{AZURECLIVERSION}"
+        },
+        "enableMobileRestApi": {
+            "value": { ENABLEMOBILERESTAPI }
+        },
+        "edxPlatformName": {
+            "value": "{EDXPLATFORMNAME}"
+        },
+        "edxPlatformEmail": {
+            "value": "{EDXPLATFORMEMAIL}"
+        }
     }
-  }
 }
