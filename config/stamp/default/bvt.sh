@@ -17,9 +17,9 @@ ENVIRONMENT=bvt
 
 # the site certificate files (.crt & .key) have to be named after the BASE_URL value
 BASE_URL=cloudswyft.com 
-LMS_URL=patoxa-learning.$BASE_URL
-CMS_URL=patoxa-studio.$BASE_URL
-PREVIEW_URL=preview.$BASE_URL
+LMS_URL=bamoxalms.$BASE_URL
+CMS_URL=bamoxacms.$BASE_URL
+PREVIEW_URL=bamoxapreview.$BASE_URL
 
 # deployment configuration
 # URL-building will be replaced by the use of LMS_URL | CMS_URL (above)
@@ -46,11 +46,11 @@ EDXAPP_EMAIL_TECH_SUPPORT="${PLATFORM_EMAIL}"
 EDXAPP_EMAIL_UNIVERSITY="${PLATFORM_EMAIL}"
 
 # config/versions.yml
-CONFIGURATION_REPO=https://github.com/PATOXA/configuration.git #https://github.com/oxatest/edx-configuration.git
+CONFIGURATION_REPO=https://github.com/bamoxa/configuration.git #https://github.com/oxatest/edx-configuration.git
 CONFIGURATION_VERSION=open-release/ficus.master
-PLATFORM_REPO=https://github.com/PATOXA/edx-platform.git
+PLATFORM_REPO=https://github.com/bamoxa/edx-platform.git
 PLATFORM_VERSION=open-release/ficus.master
-THEME_REPO=https://github.com/PATOXA/edx-theme.git
+THEME_REPO=https://github.com/bamoxa/edx-theme.git
 THEME_VERSION=oxa/master.fic
 EDX_VERSION=open-release/ficus.master
 FORUM_VERSION=oxa/master.fic
